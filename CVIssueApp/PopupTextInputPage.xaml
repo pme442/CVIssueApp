@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    x:Class="CVIssueApp.PopupTextInputPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animations="clr-namespace:Mopups.Animations;assembly=Mopups"
+    xmlns:behaviors="clr-namespace:CVIssueApp.Behaviors"
+    xmlns:controls="clr-namespace:CVIssueApp.Controls;assembly=CVIssueApp"
+    xmlns:local="clr-namespace:CVIssueApp"
+    xmlns:pages="clr-namespace:Mopups.Pages;assembly=Mopups"
+    x:Name="thePopupTextInputPage"
+    x:DataType="local:PopupTextInputViewModel"
+    BackgroundColor="{DynamicResource ColorDarkTransparent}"
+    BackgroundInputTransparent="True"
+    CloseWhenBackgroundIsClicked="False"
+    ControlTemplate="{StaticResource PopUpTextInputTemplate}"
+    IsAnimationEnabled="False">
+
+    <pages:PopupPage.Content>
+
+        <Grid
+            Margin="10,10,10,10"
+            Padding="20,20,20,20"
+            BackgroundColor="{DynamicResource ColorPopupWindow}"
+            ColumnSpacing="10"
+            RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="45" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <ScrollView
+                Grid.Row="0"
+                Grid.Column="0"
+                MinimumHeightRequest="{OnIdiom Phone='30',
+                                               Tablet='40',
+                                               Desktop='40'}"
+                VerticalScrollBarVisibility="Default">
+                <Label Style="{StaticResource popupPageQuestionLabelStyle}" Text="{Binding LabelText}" />
+                <ScrollView.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="0" />
+                </ScrollView.GestureRecognizers>
+            </ScrollView>
+
+            <controls:CustomEditor
+                x:Name="TheCustomEditor"
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="10,10,10,0"
+                AllowCompleteOnEnter="{Binding AllowCompleteOnEnter}"
+                AutoSize="Disabled"
+                CompleteOnEnter="True"
+                DoCompleteOnEnter="{Binding DoCompleteOnEnter}"
+                FocusOnDisplay="True"
+                HeightRequest="{Binding EditorHeight}"
+                HorizontalOptions="Center"
+                Style="{StaticResource formTextEditorStyle}"
+                Text="{Binding TextValue}">
+                <controls:CustomEditor.Behaviors>
+                    <behaviors:QuestionInputValidation MinimumTypingIntervalMiliseconds="200" ValidateCommand="{Binding ValidationCommand}" />
+                </controls:CustomEditor.Behaviors>
+                <controls:CustomEditor.Triggers>
+                    <DataTrigger
+                        Binding="{Binding IsNumeric}"
+                        TargetType="controls:CustomEditor"
+                        Value="True">
+                        <Setter Property="WidthRequest" Value="{OnIdiom Phone='250', Tablet='300', Desktop='300'}" />
+                        <Setter Property="HorizontalOptions" Value="Center" />
+                    </DataTrigger>
+                    <DataTrigger
+                        Binding="{Binding IsNumeric}"
+                        TargetType="controls:CustomEditor"
+                        Value="False">
+                        <Setter Property="WidthRequest" Value="{OnIdiom Phone='330', Tablet='450', Desktop='450'}" />
+                        <Setter Property="HorizontalOptions" Value="Center" />
+                    </DataTrigger>
+                </controls:CustomEditor.Triggers>
+            </controls:CustomEditor>
+
+            <Label
+                Grid.Row="2"
+                Grid.Column="0"
+                HeightRequest="40"
+                Style="{StaticResource questionErrorStyle}"
+                Text="{Binding ErrorMsgText}"
+                VerticalTextAlignment="Start" />
+
+            <Button
+                Grid.Row="3"
+                Grid.Column="0"
+                BorderWidth="0"
+                Command="{Binding ClickDoneBtnCommand}"
+                CornerRadius="10"
+                HorizontalOptions="CenterAndExpand"
+                IsEnabled="{Binding EnableDoneButton}"
+                Text="Done"
+                WidthRequest="130" />
+
+
+        </Grid>
+
+    </pages:PopupPage.Content>
+</pages:PopupPage>

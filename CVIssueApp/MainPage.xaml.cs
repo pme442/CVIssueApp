@@ -1,0 +1,38 @@
+﻿namespace CVIssueApp
+{
+    public partial class MainPage : ContentPage
+    {
+
+        public MainPageViewModel vm;
+
+        public MainPage()
+        {
+            InitializeComponent();
+            Content.BindingContext = vm = new MainPageViewModel();
+        }
+
+        private async void CategoryListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (vm.IsLoaded)
+            {
+                await vm.OnItemTapped(e.SelectedItem);
+            }
+        }
+
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            vm.OnAppearing();
+        }
+
+        private async void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (vm.IsLoaded)
+            {
+                await vm.OnItemTapped(e.CurrentSelection.First());
+            }
+        }
+    }
+
+}
