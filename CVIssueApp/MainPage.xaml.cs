@@ -19,10 +19,15 @@
             }
         }
 
+        //protected override void OnAppearing()
+        //{
+        //    base.OnAppearing();
+        //    vm.OnAppearing();
+        //}
 
-        protected override void OnAppearing()
+        protected override void OnNavigatedTo(NavigatedToEventArgs args)
         {
-            base.OnAppearing();
+            base.OnNavigatedTo(args);
             vm.OnAppearing();
         }
 
@@ -33,6 +38,8 @@
                 await vm.OnItemTapped(e.CurrentSelection.First());
             }
         }
+
+ 
     }
 
 }

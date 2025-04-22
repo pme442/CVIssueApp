@@ -107,13 +107,24 @@ namespace CVIssueApp
             get { return _clickCommandButton ?? (_clickCommandButton = new Command(async (x) => await OnClicked(x))); }
         }
 
+        private bool _isBusy;
+        public bool IsBusy
+        {
+            get { return _isBusy; }
+            set
+            {
+                _isBusy = value;
+                OnPropertyChanged(nameof(IsBusy));
+            }
+        }
+
         ObservableCollection<Question> tempQuestions = new ObservableCollection<Question>();
         List<QuestionGrouping> tempQuestionsGrouped = new List<QuestionGrouping>();
         IEnumerable<QuestionGrouping> sortedQuestions;
         List<Category> tempCategories = new List<Category>();
         private string LastSelectedCategoryPKey = "";
         private bool ForceQuestionReload = false;
-        private bool LoadingQuestions = false;
+        private bool LoadingQuestions = false;        
 
 
         public MainPageViewModel()
@@ -187,6 +198,7 @@ namespace CVIssueApp
         {
             try
             {
+                tempCategories.Clear();
 
                 Category cat1 = new Category();
                 cat1.CategoryPKey = "C1";
@@ -200,6 +212,25 @@ namespace CVIssueApp
                 questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q6", Label = "Enter day or night", Location_id = 2, Locationname = "Group 2", Sortorder = 6 });
                 questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q7", Label = "Enter name of city", Location_id = 2, Locationname = "Group 2", Sortorder = 7 });
                 questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q8", Label = "Enter name of state", Location_id = 2, Locationname = "Group 2", Sortorder = 8 });
+
+                Question SwitchQuestionC1Q9 = new Question { CategoryPKey = "C1", Category = cat1, Controltype = "switch", QuestionPKey = "C1Q9", Label = "Facts Switch 1 Yes or No", Location_id = 2, Locationname = "Group 2", Sortorder = 9 };
+                ObservableCollection<QuestionOption> questOptListC1Q9 = new ObservableCollection<QuestionOption>();
+                QuestionOption YesOptionC1Q9 = new QuestionOption { Question = SwitchQuestionC1Q9, QuestionPKey = SwitchQuestionC1Q9.QuestionPKey, QuestionOptionPKey = "C1Q9YES", Text = "Yes", Value = "Yes" };
+                QuestionOption NoOptionC1Q9 = new QuestionOption { Question = SwitchQuestionC1Q9, QuestionPKey = SwitchQuestionC1Q9.QuestionPKey, QuestionOptionPKey = "C1Q9NO", Text = "No", Value = "No" };
+                questOptListC1Q9.Add(YesOptionC1Q9);
+                questOptListC1Q9.Add(NoOptionC1Q9);
+                SwitchQuestionC1Q9.Options = questOptListC1Q9;
+                questList1.Add(SwitchQuestionC1Q9);
+
+                Question SwitchQuestionC1Q10 = new Question { CategoryPKey = "C1", Category = cat1, Controltype = "switch", QuestionPKey = "C1Q10", Label = "Facts Switch 2 Yes or No", Location_id = 2, Locationname = "Group 2", Sortorder = 10 };
+                ObservableCollection<QuestionOption> questOptListC1Q10 = new ObservableCollection<QuestionOption>();
+                QuestionOption YesOptionC1Q10 = new QuestionOption { Question = SwitchQuestionC1Q10, QuestionPKey = SwitchQuestionC1Q10.QuestionPKey, QuestionOptionPKey = "C1Q10YES", Text = "Yes", Value = "Yes" };
+                QuestionOption NoOptionC1Q10 = new QuestionOption { Question = SwitchQuestionC1Q10, QuestionPKey = SwitchQuestionC1Q10.QuestionPKey, QuestionOptionPKey = "C1Q10NO", Text = "No", Value = "No" };
+                questOptListC1Q10.Add(YesOptionC1Q10);
+                questOptListC1Q10.Add(NoOptionC1Q10);
+                SwitchQuestionC1Q10.Options = questOptListC1Q10;
+                questList1.Add(SwitchQuestionC1Q10);
+
                 cat1.Questions = questList1;
                 tempCategories.Add(cat1);
 
@@ -215,6 +246,27 @@ namespace CVIssueApp
                 questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q6", Label = "Enter favorite pet's name", Location_id = 4, Locationname = "Group 4", Sortorder = 6 });
                 questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q7", Label = "Enter favorite song", Location_id = 4, Locationname = "Group 4", Sortorder = 7 });
                 questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q8", Label = "Enter favorite cookie", Location_id = 4, Locationname = "Group 4", Sortorder = 8 });
+
+                Question SwitchQuestionC2Q9 = new Question { CategoryPKey = "C2", Category = cat2, Controltype = "switch", QuestionPKey = "C2Q9", Label = "Favorites Switch 1 Yes or No", Location_id = 4, Locationname = "Group 4", Sortorder = 9 };
+                ObservableCollection<QuestionOption> questOptListC2Q9 = new ObservableCollection<QuestionOption>();
+                QuestionOption YesOptionC2Q9 = new QuestionOption { Question = SwitchQuestionC2Q9, QuestionPKey = SwitchQuestionC2Q9.QuestionPKey, QuestionOptionPKey = "C2Q9YES", Text = "Yes", Value = "Yes" };
+                QuestionOption NoOptionC2Q9 = new QuestionOption { Question = SwitchQuestionC2Q9, QuestionPKey = SwitchQuestionC2Q9.QuestionPKey, QuestionOptionPKey = "C2Q9NO", Text = "No", Value = "No" };
+                questOptListC2Q9.Add(YesOptionC2Q9);
+                questOptListC2Q9.Add(NoOptionC2Q9);
+                SwitchQuestionC2Q9.Options = questOptListC2Q9;
+                questList2.Add(SwitchQuestionC2Q9);
+
+                Question SwitchQuestionC2Q10 = new Question { CategoryPKey = "C2", Category = cat2, Controltype = "switch", QuestionPKey = "C2Q10", Label = "Favorites Switch 2 Yes or No", Location_id = 4, Locationname = "Group 4", Sortorder = 10 };
+                ObservableCollection<QuestionOption> questOptListC2Q10 = new ObservableCollection<QuestionOption>();
+                QuestionOption YesOptionC2Q10 = new QuestionOption { Question = SwitchQuestionC2Q10, QuestionPKey = SwitchQuestionC2Q10.QuestionPKey, QuestionOptionPKey = "C2Q10YES", Text = "Yes", Value = "Yes" };
+                QuestionOption NoOptionC2Q10 = new QuestionOption { Question = SwitchQuestionC2Q10, QuestionPKey = SwitchQuestionC2Q10.QuestionPKey, QuestionOptionPKey = "C2Q10NO", Text = "No", Value = "No" };
+                questOptListC2Q10.Add(YesOptionC2Q10);
+                questOptListC2Q10.Add(NoOptionC2Q10);
+                SwitchQuestionC2Q10.Options = questOptListC2Q10;
+                questList2.Add(SwitchQuestionC2Q10);
+
+
+
                 cat2.Questions = questList2;
                 tempCategories.Add(cat2);
 
@@ -281,8 +333,9 @@ namespace CVIssueApp
             QuestionUpdateResult result = new QuestionUpdateResult();
             try
             {
-                return await Task.Run(() =>
+                return await Task.Run(async () =>
                 {
+                    IsBusy = true;
                     var catData = theQuest.Category;
 
                     if (newVal == null)
@@ -383,6 +436,12 @@ namespace CVIssueApp
 
                     result.QuestionObj = theQuest;
                     result.ReturnVal = "1";
+                    IsBusy = false;
+                    
+                    //if (theQuest.QuestionPKey == "C2Q9") // mimic analyze desc
+                    //{
+                    //    await RefreshData();
+                    //}
 
                     return result;
                 });
@@ -455,7 +514,7 @@ namespace CVIssueApp
         }
 
 
-        public async Task RefreshData()
+        public async Task RefreshData(bool isReset = false)
         {
 
             try
@@ -476,40 +535,14 @@ namespace CVIssueApp
                     theLastSelectedCategoryPKey = SelectedCategory.CategoryPKey;
                 }
 
-                tempCategories.Clear();
-
-
-                // clear and re-populate the ObservableCollections
-                Category cat1 = new Category();
-                cat1.CategoryPKey = "C1";
-                cat1.Name = "Facts";
-                ObservableCollection<Question> questList1 = new ObservableCollection<Question>();
-                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q1", Label = "Enter name of current month", Location_id = 1, Locationname = "Group 1", Sortorder = 1 });
-                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q2", Label = "Enter name of current weekday", Location_id = 1, Locationname = "Group 1", Sortorder = 2 });
-                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q3", Label = "Enter current year", Location_id = 1, Locationname = "Group 1", Sortorder = 3, IsNumeric = true });
-                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q4", Label = "Enter current hour", Location_id = 1, Locationname = "Group 1", Sortorder = 4, IsNumeric = true });
-                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q5", Label = "Enter current minute", Location_id = 1, Locationname = "Group 1", Sortorder = 5, IsNumeric = true });
-                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q6", Label = "Enter day or night", Location_id = 2, Locationname = "Group 2", Sortorder = 6 });
-                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q7", Label = "Enter name of city", Location_id = 2, Locationname = "Group 2", Sortorder = 7 });
-                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q8", Label = "Enter name of state", Location_id = 2, Locationname = "Group 2", Sortorder = 8 });
-                cat1.Questions = questList1;
-                tempCategories.Add(cat1);
-
-                Category cat2 = new Category();
-                cat2.CategoryPKey = "C2";
-                cat2.Name = "Favorites";
-                ObservableCollection<Question> questList2 = new ObservableCollection<Question>();
-                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q1", Label = "Enter favorite color", Location_id = 3, Locationname = "Group 3", Sortorder = 1 });
-                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q2", Label = "Enter favorite number", Location_id = 3, Locationname = "Group 3", Sortorder = 2, IsNumeric = true });
-                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q3", Label = "Enter favorite car model", Location_id = 3, Locationname = "Group 3", Sortorder = 3 });
-                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q4", Label = "Enter favorite season", Location_id = 3, Locationname = "Group 3", Sortorder = 4 });
-                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q5", Label = "Enter favorite holiday", Location_id = 3, Locationname = "Group 3", Sortorder = 5 });
-                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q6", Label = "Enter favorite pet's name", Location_id = 4, Locationname = "Group 4", Sortorder = 6 });
-                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q7", Label = "Enter favorite song", Location_id = 4, Locationname = "Group 4", Sortorder = 7 });
-                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q8", Label = "Enter favorite cookie", Location_id = 4, Locationname = "Group 4", Sortorder = 8 });
-                cat2.Questions = questList2;
-                tempCategories.Add(cat2);
-
+                if (isReset)
+                {
+                    await LoadData();
+                } 
+                else
+                {
+                    tempCategories = Categories.ToList();
+                }
 
                 EnableCategories = true;
 
@@ -570,7 +603,8 @@ namespace CVIssueApp
             switch ((string)buttonText)
             {
                 case "Reset":
-                    await RefreshData();                                    
+                    ForceQuestionReload = true;
+                    await RefreshData(true);                                    
                     break;
 
                 default:

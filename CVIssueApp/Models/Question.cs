@@ -33,11 +33,15 @@ namespace CVIssueApp.Models
 
         public string Label { get; set; }
 
+        public string UnitsText { get; set; }
+
         public int Sortorder { get; set; }
 
         public string Controltype { get; set; }
 
         public string ValidationRule { get; set; }
+
+        public int TotalAlarms { get; set; }
 
         private bool _alarmed;
         public bool Alarmed
@@ -110,6 +114,9 @@ namespace CVIssueApp.Models
                 return true;
             }
         }
+
+        public ObservableCollection<QuestionOption> Options { get; set; }
+       
 
         public Question()
         {

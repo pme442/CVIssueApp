@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<controls:BaseQuestionEntryTemplate
-    x:Class="CVIssueApp.Controls.QuestionTextEntry"
+<controls:BaseQuestionEntryTemplateLV
+    x:Class="CVIssueApp.Controls.QuestionTextEntryLV"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:CVIssueApp.Controls"
     xmlns:local="clr-namespace:CVIssueApp"
     xmlns:models="clr-namespace:CVIssueApp.Models"
-    x:Name="QuestionTextEntryControl"
-    x:DataType="models:Question">
+    x:Name="QuestionTextEntryControlLV">
 
 
     <Grid
@@ -96,7 +95,7 @@
             </ContentView.Triggers>
             <ContentView.GestureRecognizers>
                 <TapGestureRecognizer
-                    Command="{Binding TapCommand, Source={x:Reference QuestionTextEntryControl}}"
+                    Command="{Binding TapCommand, Source={x:Reference QuestionTextEntryControlLV}}"
                     CommandParameter="{x:Reference Name=TheQuestionTextEntry}"
                     NumberOfTapsRequired="1" />
             </ContentView.GestureRecognizers>
@@ -108,10 +107,10 @@
             Grid.ColumnSpan="4"
             IsVisible="False"
             Style="{StaticResource questionErrorStyle}"
-            Text="{Binding ErrorMessage, Source={x:Reference QuestionTextEntryControl}}">
+            Text="{Binding ErrorMessage, Source={x:Reference QuestionTextEntryControlLV}}">
             <Label.Triggers>
                 <DataTrigger
-                    Binding="{Binding InError, Source={x:Reference QuestionTextEntryControl}}"
+                    Binding="{Binding InError, Source={x:Reference QuestionTextEntryControlLV}}"
                     TargetType="Label"
                     Value="True">
                     <Setter Property="IsVisible" Value="True" />
@@ -141,4 +140,5 @@
         </Grid.Triggers>
 
     </Grid>
-</controls:BaseQuestionEntryTemplate>
+</controls:BaseQuestionEntryTemplateLV>
+

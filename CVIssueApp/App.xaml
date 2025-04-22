@@ -24,6 +24,7 @@
             <Color x:Key="ColorListViewHeader">#96ACD0</Color>
             <Color x:Key="ColorQuestionGroupHeader">#238355</Color>
             <Color x:Key="ColorQuestionControlBackground">#FFFFFF</Color>
+            <Color x:Key="ColorQuestionAnswered">#2583b3</Color>
             <Color x:Key="ColorAlarmBackground">#ffc6cb</Color>
             <Color x:Key="ColorSelectedRow">#EEB111</Color>
 
@@ -175,6 +176,46 @@
             <Style x:Key="QuestionBackgroundAlarmed" TargetType="{x:Type Grid}">
                 <Setter Property="BackgroundColor" Value="{DynamicResource ColorAlarmBackground}" />
             </Style>
+            <Style x:Key="questionSwitchLabelStyle" TargetType="Label">
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="TextColor" Value="{DynamicResource ColorLabelText}" />
+                <Setter Property="FontAttributes" Value="None" />
+                <Setter Property="FontSize" Value="{DynamicResource InputTextSize}" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="LineBreakMode" Value="WordWrap" />
+                <Setter Property="Margin" Value="{OnPlatform iOS='10,-9,15,0', Android='5,0,0,0', WinUI='0,0,15,0'}" />
+            </Style>
+            <Style x:Key="switchStyle" TargetType="Switch">
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="WidthRequest" Value="{OnPlatform WinUI='40', iOS='40', Android='45'}" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Setter Property="Margin" Value="{OnPlatform WinUI='0,4,0,0', iOS='0,5,0,0', Android='0,0,0,0'}" />
+                <Style.Triggers>
+                    <Trigger TargetType="Switch" Property="IsEnabled" Value="False">
+                        <Setter Property="Opacity" Value="0.6" />
+                    </Trigger>
+                    <MultiTrigger TargetType="Switch">
+                        <MultiTrigger.Conditions>
+                            <PropertyCondition Property="IsEnabled" Value="True" />
+                            <PropertyCondition Property="IsToggled" Value="False" />
+                        </MultiTrigger.Conditions>
+                        <MultiTrigger.Setters>
+                            <Setter Property="ThumbColor" Value="{OnPlatform WinUI={DynamicResource ColorLabelText}, iOS='White'}" />
+                        </MultiTrigger.Setters>
+                    </MultiTrigger>
+                    <MultiTrigger TargetType="Switch">
+                        <MultiTrigger.Conditions>
+                            <PropertyCondition Property="IsEnabled" Value="True" />
+                            <PropertyCondition Property="IsToggled" Value="True" />
+                        </MultiTrigger.Conditions>
+                        <MultiTrigger.Setters>
+                            <Setter Property="ThumbColor" Value="{OnPlatform WinUI={DynamicResource ColorTextBackground}, iOS='White'}" />
+                        </MultiTrigger.Setters>
+                    </MultiTrigger>
+                </Style.Triggers>
+            </Style>
+
             <Style
                 x:Key="popupPageQuestionLabelStyle"
                 BasedOn="{StaticResource questionLabelStyle}"
@@ -187,8 +228,26 @@
             <DataTemplate x:Key="QuestionTextTemplate" x:DataType="models:Question">
                 <controls:QuestionTextEntry x:Name="QuestionTextEntry" Value="{Binding Value, FallbackValue=''}" />
             </DataTemplate>
+            <DataTemplate x:Key="QuestionTextTemplateLV" x:DataType="models:Question">
+                <controls:QuestionTextEntryLV x:Name="QuestionTextEntryLV" Value="{Binding Value, FallbackValue=''}" />
+            </DataTemplate>
+            <DataTemplate x:Key="QuestionSwitchTemplate" x:DataType="models:Question">
+                <controls:QuestionSwitchEntry x:Name="QuestionSwitchEntry" Value="{Binding Value, FallbackValue=''}" />
+            </DataTemplate>
+            <DataTemplate x:Key="QuestionSwitchTemplateLV" x:DataType="models:Question">
+                <controls:QuestionSwitchEntryLV x:Name="QuestionSwitchEntryLV" Value="{Binding Value, FallbackValue=''}" />
+            </DataTemplate>
 
-            <controls:QuestionEntryTemplateSelector x:Key="questionEntryTemplateSelector" QuestionTextTemplate="{StaticResource QuestionTextTemplate}" />
+
+            <controls:QuestionEntryTemplateSelector
+                x:Key="questionEntryTemplateSelector"
+                QuestionSwitchTemplate="{StaticResource QuestionSwitchTemplate}"
+                QuestionTextTemplate="{StaticResource QuestionTextTemplate}" />
+
+            <controls:QuestionEntryTemplateSelectorLV
+                x:Key="questionEntryTemplateSelectorLV"
+                QuestionSwitchTemplate="{StaticResource QuestionSwitchTemplateLV}"
+                QuestionTextTemplate="{StaticResource QuestionTextTemplateLV}" />
 
 
 

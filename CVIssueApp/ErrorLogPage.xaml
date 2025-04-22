@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CVIssueApp.ErrorLogPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:CVIssueApp"
+    xmlns:models="clr-namespace:CVIssueApp.Models"
+    Title="ErrorLogPage"
+    x:DataType="local:ErrorLogPageViewModel">
+
+    <ContentPage.Content>
+        <ScrollView Margin="0" Padding="0">
+            <Grid
+                Margin="20,20,20,20"
+                ColumnSpacing="0"
+                RowSpacing="0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="{OnIdiom Phone='*', Tablet='5', Desktop='*'}" />
+                    <RowDefinition Height="{OnPlatform iOS={OnIdiom Phone='60*', Tablet='520'}, Android={OnIdiom Phone='60*', Tablet='520'}, WinUI={OnIdiom Phone='60*', Desktop='450', Tablet='450'}}" />
+                    <RowDefinition Height="{OnIdiom Phone='45', Tablet='45', Desktop='45'}" />
+                    <RowDefinition Height="{OnIdiom Phone='*', Tablet='5', Desktop='*'}" />
+                </Grid.RowDefinitions>
+
+                <ScrollView
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    BackgroundColor="{DynamicResource ColorTextBackground}"
+                    HeightRequest="{OnPlatform iOS='525',
+                                               Android='525',
+                                               WinUI='450'}"
+                    VerticalOptions="FillAndExpand">
+                    <Label
+                        Margin="20,20,20,20"
+                        FontSize="Medium"
+                        SizeChanged="Label_SizeChanged"
+                        Text="{Binding LogText}" />
+                </ScrollView>
+
+                <Button
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Command="{Binding ClickCommandButton}"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Clear Log"
+                    WidthRequest="220" />
+
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

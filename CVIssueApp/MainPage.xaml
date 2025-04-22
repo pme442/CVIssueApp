@@ -144,6 +144,16 @@
                             Style="{StaticResource listViewQuestionGroupLabelStyle}"
                             Text="{Binding Key}" />
 
+                        <Button
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            BackgroundColor="{DynamicResource ColorTransparent}"
+                            HeightRequest="30"
+                            HorizontalOptions="End"
+                            Text="btn"
+                            TextColor="{DynamicResource ColorWhite}"
+                            VerticalOptions="Start" />
+
                     </Grid>
 
 

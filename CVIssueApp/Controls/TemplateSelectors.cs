@@ -100,6 +100,7 @@ namespace CVIssueApp.Controls
         {
 
             public DataTemplate QuestionTextTemplate { get; set; }
+            public DataTemplate QuestionSwitchTemplate { get; set; }
             public DataTemplate BlankTemplate { get; set; }
 
 
@@ -107,6 +108,7 @@ namespace CVIssueApp.Controls
             {
                 //Retain instances!
                 QuestionTextTemplate = new DataTemplate(typeof(QuestionTextEntry));
+                QuestionSwitchTemplate = new DataTemplate(typeof(QuestionSwitchEntry));
                 BlankTemplate = new DataTemplate(typeof(QuestionHiddenEntry));
             }
 
@@ -142,7 +144,10 @@ namespace CVIssueApp.Controls
                     case "text":
                     case "textbox":
                         QuestionTextTemplate.SetValue(BaseQuestionEntryTemplate.ParentBindingContextProperty, container.BindingContext);
-                        return QuestionTextTemplate;                   
+                        return QuestionTextTemplate;
+                    case "switch":
+                        QuestionSwitchTemplate.SetValue(BaseQuestionEntryTemplate.ParentBindingContextProperty, container.BindingContext);
+                        return QuestionSwitchTemplate;
                     default:
                         // text                    
                         QuestionTextTemplate.SetValue(BaseQuestionEntryTemplate.ParentBindingContextProperty, container.BindingContext);
