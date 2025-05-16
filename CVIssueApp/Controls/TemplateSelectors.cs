@@ -82,9 +82,9 @@ namespace CVIssueApp.Controls
 
             }
 
-            
 
-            public void Dispose()
+
+        public void Dispose()
             {
                 ContextMenuTapCommand = null;
                 ParentBindingContext = null;

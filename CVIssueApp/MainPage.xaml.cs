@@ -35,7 +35,10 @@
         {
             if (vm.IsLoaded)
             {
-                await vm.OnItemTapped(e.CurrentSelection.First());
+                if (e.CurrentSelection.Count > 0)
+                {
+                    await vm.OnItemTapped(e.CurrentSelection.First());
+                }
             }
         }
 

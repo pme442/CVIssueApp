@@ -79,6 +79,12 @@
 		<PackageReference Include="Mopups" Version="1.3.2" />
 	</ItemGroup>
 
+	<!--<ItemGroup>
+		<FrameworkReference Update="Microsoft.NETCore.App">
+			<RuntimeFrameworkVersion>9.0.5</RuntimeFrameworkVersion>
+		</FrameworkReference>
+	</ItemGroup>-->
+
 	<ItemGroup>
 	  <MauiXaml Update="Controls\QuestionHiddenEntry.xaml">
 	    <Generator>MSBuild:Compile</Generator>

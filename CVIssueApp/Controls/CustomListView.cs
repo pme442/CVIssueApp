@@ -10,17 +10,15 @@ namespace CVIssueApp.Controls
 {
     public class CustomListView : ListView, IDisposable
     {
-        // 8-5-24 anc
         // In an attempt to improve performance and memory usage, I discovered the following (for iOS): 
         // 1. RecycleElementAndDataTemplate does not work if you are using a single ViewModel/Model foreach template.
         // See issue: [Bug] [iOS] [Android] ListView bug for CachingStrategy="RecycleElementAndDataTemplate" #9998
-        // 2. RecycleElement causes this issue:  If an item height changes after it is initially drawn (e.g. "Comment is required" message appears), if you then try to open the action menu, the app freezes.
+        // 2. RecycleElement causes this issue:  If an item height changes after it is initially drawn if you then try to open the action menu, the app freezes.
         public CustomListView() : this(DeviceInfo.Platform == DevicePlatform.iOS || DeviceInfo.Platform == DevicePlatform.Android ? ListViewCachingStrategy.RetainElement : ListViewCachingStrategy.RecycleElement)
         {
             this.ItemSelected += CustomListView_ItemSelected;
         }
 
-        // 4-22-21 anc
         // Workaround for: [iOS] Xamarin.Forms Listview Row Height Does Not Update When Changing Content Size (such as label) #2383
         // See also: CustomListViewRenderer_iOS
         public void ForceNativeTableUpdate(bool useDelay = false)

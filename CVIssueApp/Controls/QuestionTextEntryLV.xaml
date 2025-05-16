@@ -23,7 +23,7 @@
             <RowDefinition Height="0" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="0" />
+            <RowDefinition Height="{Binding AnsweredByHeight}" />
             <RowDefinition Height="0" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -123,6 +123,16 @@
                 </DataTrigger>
             </Label.Triggers>
         </Label>
+
+        <Label
+            Grid.Row="5"
+            Grid.Column="0"
+            Grid.ColumnSpan="4"
+            Margin="10,5,10,5"
+            FontAttributes="Italic"
+            PropertyChanging="OnAnsweredByTextChanged"
+            Style="{StaticResource questionLabelStyle}"
+            Text="{Binding AnsweredByText}" />
 
         <Grid.Triggers>
             <DataTrigger

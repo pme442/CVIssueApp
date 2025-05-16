@@ -231,6 +231,82 @@ namespace CVIssueApp
                 SwitchQuestionC1Q10.Options = questOptListC1Q10;
                 questList1.Add(SwitchQuestionC1Q10);
 
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q11", Label = "Facts Text Question 11 Really Long Text Facts Text Question 11 Really Long Text Facts Text Question 11 Really Long Text Facts Text Question 11 Test Test Test Test Test", Location_id = 2, Locationname = "Group 2", Sortorder = 11 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q12", Label = "Facts Text Question 12 Kind of Long Text Facts Text Question 12 Kind of Long Text Facts Text Question 12", Location_id = 2, Locationname = "Group 2", Sortorder = 12, IsNumeric = true });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q13", Label = "Facts Text Question 13", Location_id = 2, Locationname = "Group 2", Sortorder = 13 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q14", Label = "Facts Text Question 14", Location_id = 2, Locationname = "Group 2", Sortorder = 14 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q15", Label = "Facts Text Question 15", Location_id = 2, Locationname = "Group 2", Sortorder = 15 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q16", Label = "Facts Text Question 16", Location_id = 2, Locationname = "Group 2", Sortorder = 16 });
+                questList1.Add(new Question { CategoryPKey = "C2", Category = cat1, Controltype = "text", QuestionPKey = "C1Q17", Label = "Facts Text Question 17", Location_id = 2, Locationname = "Group 2", Sortorder = 17 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q18", Label = "Facts Text Question 18", Location_id = 2, Locationname = "Group 2", Sortorder = 18 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q19", Label = "Facts Text Question 19", Location_id = 2, Locationname = "Group 2", Sortorder = 19 });
+
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q20", Label = "Facts Text Question 20", Location_id = 2, Locationname = "Group 2", Sortorder = 20 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q21", Label = "Facts Text Question 21", Location_id = 2, Locationname = "Group 2", Sortorder = 21 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q22", Label = "Facts Text Question 22", Location_id = 2, Locationname = "Group 2", Sortorder = 22, IsNumeric = true });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q23", Label = "Facts Text Question 23", Location_id = 2, Locationname = "Group 2", Sortorder = 23 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q24", Label = "Facts Text Question 24", Location_id = 2, Locationname = "Group 2", Sortorder = 24 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q25", Label = "Facts Text Question 25", Location_id = 2, Locationname = "Group 2", Sortorder = 25 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q26", Label = "Facts Text Question 26", Location_id = 2, Locationname = "Group 2", Sortorder = 26 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q27", Label = "Facts Text Question 27", Location_id = 2, Locationname = "Group 2", Sortorder = 27 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q28", Label = "Facts Text Question 28", Location_id = 2, Locationname = "Group 2", Sortorder = 28 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q29", Label = "Facts Text Question 29", Location_id = 2, Locationname = "Group 2", Sortorder = 29 });
+
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q30", Label = "Facts Text Question 30", Location_id = 2, Locationname = "Group 2", Sortorder = 30 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q31", Label = "Facts Text Question 31", Location_id = 2, Locationname = "Group 2", Sortorder = 31 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q32", Label = "Facts Text Question 32", Location_id = 2, Locationname = "Group 2", Sortorder = 32, IsNumeric = true });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q33", Label = "Facts Text Question 33", Location_id = 2, Locationname = "Group 2", Sortorder = 33 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q34", Label = "Facts Text Question 34", Location_id = 2, Locationname = "Group 2", Sortorder = 34 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q35", Label = "Facts Text Question 35", Location_id = 2, Locationname = "Group 2", Sortorder = 35 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q36", Label = "Facts Text Question 36", Location_id = 2, Locationname = "Group 2", Sortorder = 36 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q37", Label = "Facts Text Question 37", Location_id = 2, Locationname = "Group 2", Sortorder = 37 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q38", Label = "Facts Text Question 38", Location_id = 2, Locationname = "Group 2", Sortorder = 38 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q39", Label = "Facts Text Question 39", Location_id = 2, Locationname = "Group 2", Sortorder = 39 });
+
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q40", Label = "Facts Text Question 40", Location_id = 2, Locationname = "Group 2", Sortorder = 40 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q41", Label = "Facts Text Question 41", Location_id = 2, Locationname = "Group 2", Sortorder = 41 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q42", Label = "Facts Text Question 42", Location_id = 2, Locationname = "Group 2", Sortorder = 42, IsNumeric = true });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q43", Label = "Facts Text Question 43", Location_id = 2, Locationname = "Group 2", Sortorder = 43 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q44", Label = "Facts Text Question 44", Location_id = 2, Locationname = "Group 2", Sortorder = 44 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q45", Label = "Facts Text Question 45", Location_id = 2, Locationname = "Group 2", Sortorder = 45 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q46", Label = "Facts Text Question 46", Location_id = 2, Locationname = "Group 2", Sortorder = 46 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q47", Label = "Facts Text Question 47", Location_id = 2, Locationname = "Group 2", Sortorder = 47 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q48", Label = "Facts Text Question 48", Location_id = 2, Locationname = "Group 2", Sortorder = 48 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q49", Label = "Facts Text Question 49", Location_id = 2, Locationname = "Group 2", Sortorder = 49 });
+
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q50", Label = "Facts Text Question 50", Location_id = 2, Locationname = "Group 2", Sortorder = 50 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q51", Label = "Facts Text Question 51", Location_id = 2, Locationname = "Group 2", Sortorder = 51 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q52", Label = "Facts Text Question 52", Location_id = 2, Locationname = "Group 2", Sortorder = 52, IsNumeric = true });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q53", Label = "Facts Text Question 53", Location_id = 2, Locationname = "Group 2", Sortorder = 53 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q54", Label = "Facts Text Question 54", Location_id = 2, Locationname = "Group 2", Sortorder = 54 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q55", Label = "Facts Text Question 55", Location_id = 2, Locationname = "Group 2", Sortorder = 55 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q56", Label = "Facts Text Question 56", Location_id = 2, Locationname = "Group 2", Sortorder = 56 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q57", Label = "Facts Text Question 57", Location_id = 2, Locationname = "Group 2", Sortorder = 57 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q58", Label = "Facts Text Question 58", Location_id = 2, Locationname = "Group 2", Sortorder = 58 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q59", Label = "Facts Text Question 59", Location_id = 2, Locationname = "Group 2", Sortorder = 59 });
+
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q60", Label = "Facts Text Question 60", Location_id = 2, Locationname = "Group 2", Sortorder = 60 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q61", Label = "Facts Text Question 61", Location_id = 2, Locationname = "Group 2", Sortorder = 61 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q62", Label = "Facts Text Question 62", Location_id = 2, Locationname = "Group 2", Sortorder = 62, IsNumeric = true });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q63", Label = "Facts Text Question 63", Location_id = 2, Locationname = "Group 2", Sortorder = 63 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q64", Label = "Facts Text Question 64", Location_id = 2, Locationname = "Group 2", Sortorder = 64 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q65", Label = "Facts Text Question 65", Location_id = 2, Locationname = "Group 2", Sortorder = 65 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q66", Label = "Facts Text Question 66", Location_id = 2, Locationname = "Group 2", Sortorder = 66 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q67", Label = "Facts Text Question 67", Location_id = 2, Locationname = "Group 2", Sortorder = 67 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q68", Label = "Facts Text Question 68", Location_id = 2, Locationname = "Group 2", Sortorder = 68 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q69", Label = "Facts Text Question 69", Location_id = 2, Locationname = "Group 2", Sortorder = 69 });
+
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q70", Label = "Facts Text Question 70", Location_id = 2, Locationname = "Group 2", Sortorder = 70 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q71", Label = "Facts Text Question 71", Location_id = 2, Locationname = "Group 2", Sortorder = 71 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q72", Label = "Facts Text Question 72", Location_id = 2, Locationname = "Group 2", Sortorder = 72, IsNumeric = true });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q73", Label = "Facts Text Question 73", Location_id = 2, Locationname = "Group 2", Sortorder = 73 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q74", Label = "Facts Text Question 74", Location_id = 2, Locationname = "Group 2", Sortorder = 74 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q75", Label = "Facts Text Question 75", Location_id = 2, Locationname = "Group 2", Sortorder = 75 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q76", Label = "Facts Text Question 76", Location_id = 2, Locationname = "Group 2", Sortorder = 76 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q77", Label = "Facts Text Question 77", Location_id = 2, Locationname = "Group 2", Sortorder = 77 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q78", Label = "Facts Text Question 78", Location_id = 2, Locationname = "Group 2", Sortorder = 78 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q79", Label = "Facts Text Question 79", Location_id = 2, Locationname = "Group 2", Sortorder = 79 });
+
                 cat1.Questions = questList1;
                 tempCategories.Add(cat1);
 
@@ -256,7 +332,7 @@ namespace CVIssueApp
                 SwitchQuestionC2Q9.Options = questOptListC2Q9;
                 questList2.Add(SwitchQuestionC2Q9);
 
-                Question SwitchQuestionC2Q10 = new Question { CategoryPKey = "C2", Category = cat2, Controltype = "switch", QuestionPKey = "C2Q10", Label = "Favorites Switch 2 Yes or No", Location_id = 4, Locationname = "Group 4", Sortorder = 10 };
+                Question SwitchQuestionC2Q10 = new Question { CategoryPKey = "C2", Category = cat2, Controltype = "switch", QuestionPKey = "C2Q10", Label = "Favorites Switch 2 Yes or No", Location_id = 4, Locationname = "Group 4", Sortorder = 10, Ineligible = true };
                 ObservableCollection<QuestionOption> questOptListC2Q10 = new ObservableCollection<QuestionOption>();
                 QuestionOption YesOptionC2Q10 = new QuestionOption { Question = SwitchQuestionC2Q10, QuestionPKey = SwitchQuestionC2Q10.QuestionPKey, QuestionOptionPKey = "C2Q10YES", Text = "Yes", Value = "Yes" };
                 QuestionOption NoOptionC2Q10 = new QuestionOption { Question = SwitchQuestionC2Q10, QuestionPKey = SwitchQuestionC2Q10.QuestionPKey, QuestionOptionPKey = "C2Q10NO", Text = "No", Value = "No" };
@@ -264,6 +340,83 @@ namespace CVIssueApp
                 questOptListC2Q10.Add(NoOptionC2Q10);
                 SwitchQuestionC2Q10.Options = questOptListC2Q10;
                 questList2.Add(SwitchQuestionC2Q10);
+
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q11", Label = "Favorites Text Question 11", Location_id = 4, Locationname = "Group 4", Sortorder = 11 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q12", Label = "Favorites Text Question 12", Location_id = 4, Locationname = "Group 4", Sortorder = 12, IsNumeric = true });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q13", Label = "Favorites Text Question 13", Location_id = 4, Locationname = "Group 4", Sortorder = 13 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q14", Label = "Favorites Text Question 14", Location_id = 4, Locationname = "Group 4", Sortorder = 14 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q15", Label = "Favorites Text Question 15", Location_id = 4, Locationname = "Group 4", Sortorder = 15 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q16", Label = "Favorites Text Question 16", Location_id = 4, Locationname = "Group 4", Sortorder = 16 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q17", Label = "Favorites Text Question 17", Location_id = 4, Locationname = "Group 4", Sortorder = 17 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q18", Label = "Favorites Text Question 18", Location_id = 4, Locationname = "Group 4", Sortorder = 18 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q19", Label = "Favorites Text Question 19", Location_id = 4, Locationname = "Group 4", Sortorder = 19 });
+
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q20", Label = "Favorites Text Question 20", Location_id = 4, Locationname = "Group 4", Sortorder = 20 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q21", Label = "Favorites Text Question 21", Location_id = 4, Locationname = "Group 4", Sortorder = 21 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q22", Label = "Favorites Text Question 22", Location_id = 4, Locationname = "Group 4", Sortorder = 22, IsNumeric = true });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q23", Label = "Favorites Text Question 23", Location_id = 4, Locationname = "Group 4", Sortorder = 23 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q24", Label = "Favorites Text Question 24", Location_id = 4, Locationname = "Group 4", Sortorder = 24 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q25", Label = "Favorites Text Question 25", Location_id = 4, Locationname = "Group 4", Sortorder = 25 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q26", Label = "Favorites Text Question 26", Location_id = 4, Locationname = "Group 4", Sortorder = 26 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q27", Label = "Favorites Text Question 27", Location_id = 4, Locationname = "Group 4", Sortorder = 27 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q28", Label = "Favorites Text Question 28", Location_id = 4, Locationname = "Group 4", Sortorder = 28 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q29", Label = "Favorites Text Question 29", Location_id = 4, Locationname = "Group 4", Sortorder = 29 });
+
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q30", Label = "Favorites Text Question 30", Location_id = 4, Locationname = "Group 4", Sortorder = 30 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q31", Label = "Favorites Text Question 31", Location_id = 4, Locationname = "Group 4", Sortorder = 31 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q32", Label = "Favorites Text Question 32", Location_id = 4, Locationname = "Group 4", Sortorder = 32, IsNumeric = true });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q33", Label = "Favorites Text Question 33", Location_id = 4, Locationname = "Group 4", Sortorder = 33 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q34", Label = "Favorites Text Question 34", Location_id = 4, Locationname = "Group 4", Sortorder = 34 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q35", Label = "Favorites Text Question 35", Location_id = 4, Locationname = "Group 4", Sortorder = 35 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q36", Label = "Favorites Text Question 36", Location_id = 4, Locationname = "Group 4", Sortorder = 36 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q37", Label = "Favorites Text Question 37", Location_id = 4, Locationname = "Group 4", Sortorder = 37 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q38", Label = "Favorites Text Question 38", Location_id = 4, Locationname = "Group 4", Sortorder = 38 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q39", Label = "Favorites Text Question 39", Location_id = 4, Locationname = "Group 4", Sortorder = 39 });
+
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q40", Label = "Favorites Text Question 40", Location_id = 4, Locationname = "Group 4", Sortorder = 40 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q41", Label = "Favorites Text Question 41", Location_id = 4, Locationname = "Group 4", Sortorder = 41 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q42", Label = "Favorites Text Question 42", Location_id = 4, Locationname = "Group 4", Sortorder = 42, IsNumeric = true });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q43", Label = "Favorites Text Question 43", Location_id = 4, Locationname = "Group 4", Sortorder = 43 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q44", Label = "Favorites Text Question 44", Location_id = 4, Locationname = "Group 4", Sortorder = 44 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q45", Label = "Favorites Text Question 45", Location_id = 4, Locationname = "Group 4", Sortorder = 45 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q46", Label = "Favorites Text Question 46", Location_id = 4, Locationname = "Group 4", Sortorder = 46 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q47", Label = "Favorites Text Question 47", Location_id = 4, Locationname = "Group 4", Sortorder = 47 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q48", Label = "Favorites Text Question 48", Location_id = 4, Locationname = "Group 4", Sortorder = 48 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q49", Label = "Favorites Text Question 49", Location_id = 4, Locationname = "Group 4", Sortorder = 49 });
+
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q50", Label = "Favorites Text Question 50", Location_id = 4, Locationname = "Group 4", Sortorder = 50 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q51", Label = "Favorites Text Question 51", Location_id = 4, Locationname = "Group 4", Sortorder = 51 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q52", Label = "Favorites Text Question 52", Location_id = 4, Locationname = "Group 4", Sortorder = 52, IsNumeric = true });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q53", Label = "Favorites Text Question 53", Location_id = 4, Locationname = "Group 4", Sortorder = 53 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q54", Label = "Favorites Text Question 54", Location_id = 4, Locationname = "Group 4", Sortorder = 54 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q55", Label = "Favorites Text Question 55", Location_id = 4, Locationname = "Group 4", Sortorder = 55 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q56", Label = "Favorites Text Question 56", Location_id = 4, Locationname = "Group 4", Sortorder = 56 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q57", Label = "Favorites Text Question 57", Location_id = 4, Locationname = "Group 4", Sortorder = 57 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q58", Label = "Favorites Text Question 58", Location_id = 4, Locationname = "Group 4", Sortorder = 58 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q59", Label = "Favorites Text Question 59", Location_id = 4, Locationname = "Group 4", Sortorder = 59 });
+
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q60", Label = "Favorites Text Question 60", Location_id = 4, Locationname = "Group 4", Sortorder = 60 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q61", Label = "Favorites Text Question 61", Location_id = 4, Locationname = "Group 4", Sortorder = 61 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q62", Label = "Favorites Text Question 62", Location_id = 4, Locationname = "Group 4", Sortorder = 62, IsNumeric = true });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q63", Label = "Favorites Text Question 63", Location_id = 4, Locationname = "Group 4", Sortorder = 63 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q64", Label = "Favorites Text Question 64", Location_id = 4, Locationname = "Group 4", Sortorder = 64 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q65", Label = "Favorites Text Question 65", Location_id = 4, Locationname = "Group 4", Sortorder = 65 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q66", Label = "Favorites Text Question 66", Location_id = 4, Locationname = "Group 4", Sortorder = 66 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q67", Label = "Favorites Text Question 67", Location_id = 4, Locationname = "Group 4", Sortorder = 67 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q68", Label = "Favorites Text Question 68", Location_id = 4, Locationname = "Group 4", Sortorder = 68 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q69", Label = "Favorites Text Question 69", Location_id = 4, Locationname = "Group 4", Sortorder = 69 });
+
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q70", Label = "Favorites Text Question 70", Location_id = 4, Locationname = "Group 4", Sortorder = 70 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q71", Label = "Favorites Text Question 71", Location_id = 4, Locationname = "Group 4", Sortorder = 71 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q72", Label = "Favorites Text Question 72", Location_id = 4, Locationname = "Group 4", Sortorder = 72, IsNumeric = true });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q73", Label = "Favorites Text Question 73", Location_id = 4, Locationname = "Group 4", Sortorder = 73 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q74", Label = "Favorites Text Question 74", Location_id = 4, Locationname = "Group 4", Sortorder = 74 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q75", Label = "Favorites Text Question 75", Location_id = 4, Locationname = "Group 4", Sortorder = 75 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q76", Label = "Favorites Text Question 76", Location_id = 4, Locationname = "Group 4", Sortorder = 76 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q77", Label = "Favorites Text Question 77", Location_id = 4, Locationname = "Group 4", Sortorder = 77 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q78", Label = "Favorites Text Question 78", Location_id = 4, Locationname = "Group 4", Sortorder = 78 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q79", Label = "Favorites Text Question 79", Location_id = 4, Locationname = "Group 4", Sortorder = 79 });
+
 
 
 
@@ -345,6 +498,7 @@ namespace CVIssueApp
 
                     string strNewVal = newVal.ToString();
                     theQuest.Value = strNewVal;
+                    theQuest.AnsweredByText = string.IsNullOrEmpty(strNewVal) ? "" : "Answered on " + DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss.fff");
 
 
                     // Instead of saving the value to the database and retrieving everything, just update the ObservableCollections 
@@ -433,15 +587,33 @@ namespace CVIssueApp
                             }
                         });
                     }
+         
+                    if (theQuest.QuestionPKey == "C2Q9") // mimic analyze desc
+                    {
+                        Category theTempCat = Categories.Where(c => c.CategoryPKey == SelectedCategoryPKey).FirstOrDefault();
+                        if (theTempCat != null)
+                        {
+                            Question theExtraQuestion = theTempCat.Questions.Where(q => q.QuestionPKey == "C2Q10").FirstOrDefault();
+                            if (theExtraQuestion != null)
+                            {
+                                if (theQuest.Value == "Yes")
+                                {
+                                    theExtraQuestion.Ineligible = false;
+                                } 
+                                else
+                                {
+                                    theExtraQuestion.Ineligible = true;
+                                }
+
+                                ForceQuestionReload = true;
+                                await RefreshData();
+                            }
+                        }                                
+                    }
 
                     result.QuestionObj = theQuest;
                     result.ReturnVal = "1";
                     IsBusy = false;
-                    
-                    //if (theQuest.QuestionPKey == "C2Q9") // mimic analyze desc
-                    //{
-                    //    await RefreshData();
-                    //}
 
                     return result;
                 });
@@ -541,6 +713,7 @@ namespace CVIssueApp
                 } 
                 else
                 {
+                    tempCategories.Clear();
                     tempCategories = Categories.ToList();
                 }
 
@@ -578,6 +751,7 @@ namespace CVIssueApp
                             }
                             else
                             {
+                                SelectedCategory = null;
                                 SelectedCategory = theSelectedCat;
                             }
                         }

@@ -201,6 +201,7 @@ namespace CVIssueApp.Controls
         }
 
 
+        // Not used
         private void OnTextChanged(object sender, TextChangedEventArgs e)
         {
             if (TextChangedIsBusy)

@@ -27,7 +27,7 @@
         </Grid.ColumnDefinitions>
 
 
-        <ListView
+        <controls:CustomListView
             Grid.Row="0"
             Grid.Column="0"
             BackgroundColor="Transparent"
@@ -39,7 +39,7 @@
             SelectedItem="{Binding SelectedCategory, Mode=TwoWay}"
             SelectionMode="Single">
 
-            <ListView.ItemTemplate>
+            <controls:CustomListView.ItemTemplate>
                 <DataTemplate x:DataType="models:Category">
                     <controls:CustomViewCell>
                         <Grid Margin="5,10,5,10" RowSpacing="3">
@@ -78,8 +78,8 @@
                         </Grid>
                     </controls:CustomViewCell>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </controls:CustomListView.ItemTemplate>
+        </controls:CustomListView>
 
         <Button
             Grid.Row="0"
@@ -104,7 +104,7 @@
             BackgroundColor="{DynamicResource ColorListViewHeader}" />
 
 
-        <ListView
+        <controls:CustomListView
             Grid.Row="0"
             Grid.Column="2"
             ios:ListView.GroupHeaderStyle="Plain"
@@ -119,9 +119,9 @@
             SelectionMode="Single"
             VerticalOptions="FillAndExpand">
 
-            <ListView.GroupHeaderTemplate>
+            <controls:CustomListView.GroupHeaderTemplate>
                 <DataTemplate x:DataType="models:QuestionGrouping">
-                    <ViewCell>
+                    <controls:CustomViewCell>
                         <Grid
                             Margin="{OnPlatform iOS='0,0,0,0',
                                                 Android='0,0,0,0',
@@ -146,10 +146,10 @@
                         </Grid>
 
 
-                    </ViewCell>
+                    </controls:CustomViewCell>
                 </DataTemplate>
-            </ListView.GroupHeaderTemplate>
-        </ListView>
+            </controls:CustomListView.GroupHeaderTemplate>
+        </controls:CustomListView>
 
 
 

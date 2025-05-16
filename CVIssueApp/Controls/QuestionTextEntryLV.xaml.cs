@@ -231,6 +231,5 @@ namespace CVIssueApp.Controls
 
         }
 
-
     }
 }

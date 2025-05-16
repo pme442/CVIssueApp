@@ -225,8 +225,8 @@ namespace CVIssueApp
                 SwitchQuestionC1Q10.Options = questOptListC1Q10;
                 questList1.Add(SwitchQuestionC1Q10);
 
-                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q11", Label = "Facts Text Question 11", Location_id = 2, Locationname = "Group 2", Sortorder = 11 });
-                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q12", Label = "Facts Text Question 12", Location_id = 2, Locationname = "Group 2", Sortorder = 12, IsNumeric = true });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q11", Label = "Facts Text Question 11 Really Long Text Facts Text Question 11 Really Long Text Facts Text Question 11 Really Long Text Facts Text Question 11 Test Test Test Test Test", Location_id = 2, Locationname = "Group 2", Sortorder = 11 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q12", Label = "Facts Text Question 12 Kind of Long Text Facts Text Question 12 Kind of Long Text Facts Text Question 12", Location_id = 2, Locationname = "Group 2", Sortorder = 12, IsNumeric = true });
                 questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q13", Label = "Facts Text Question 13", Location_id = 2, Locationname = "Group 2", Sortorder = 13 });
                 questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q14", Label = "Facts Text Question 14", Location_id = 2, Locationname = "Group 2", Sortorder = 14 });
                 questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q15", Label = "Facts Text Question 15", Location_id = 2, Locationname = "Group 2", Sortorder = 15 });
@@ -327,7 +327,7 @@ namespace CVIssueApp
                 SwitchQuestionC2Q9.Options = questOptListC2Q9;
                 questList2.Add(SwitchQuestionC2Q9);
 
-                Question SwitchQuestionC2Q10 = new Question { CategoryPKey = "C2", Category = cat2, Controltype = "switch", QuestionPKey = "C2Q10", Label = "Favorites Switch 2 Yes or No", Location_id = 4, Locationname = "Group 4", Sortorder = 10 };
+                Question SwitchQuestionC2Q10 = new Question { CategoryPKey = "C2", Category = cat2, Controltype = "switch", QuestionPKey = "C2Q10", Label = "Favorites Switch 2 Yes or No", Location_id = 4, Locationname = "Group 4", Sortorder = 10, Ineligible = true };
                 ObservableCollection<QuestionOption> questOptListC2Q10 = new ObservableCollection<QuestionOption>();
                 QuestionOption YesOptionC2Q10 = new QuestionOption { Question = SwitchQuestionC2Q10, QuestionPKey = SwitchQuestionC2Q10.QuestionPKey, QuestionOptionPKey = "C2Q10YES", Text = "Yes", Value = "Yes" };
                 QuestionOption NoOptionC2Q10 = new QuestionOption { Question = SwitchQuestionC2Q10, QuestionPKey = SwitchQuestionC2Q10.QuestionPKey, QuestionOptionPKey = "C2Q10NO", Text = "No", Value = "No" };
@@ -491,13 +491,17 @@ namespace CVIssueApp
 
                     string strNewVal = newVal.ToString();
                     theQuest.Value = strNewVal;
+                    theQuest.AnsweredByText = string.IsNullOrEmpty(strNewVal) ? "" : "Answered on " + DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss.fff");
 
                     // Simulate saving to database and background processing
                     var ok = await Utils.DummyAsyncTask1();
                     if (strNewVal.Contains("o") && ok == "ok")
                     {
                         ok = await Utils.DummyAsyncTask2();
-                    }                    
+                        //Utils.DummyAsyncTask3();
+                    }
+
+                    Utils.DummyAsyncTask3();
 
                     // Instead of saving the value to the database and retrieving everything, just update the ObservableCollections 
                     var catpair = Categories.Select((Value, Index) => new { Value, Index }).Single(p => p.Value.CategoryPKey == theQuest.Category.CategoryPKey);
@@ -586,6 +590,29 @@ namespace CVIssueApp
                         });
                     }
 
+                    if (theQuest.QuestionPKey == "C2Q9") // mimic analyze desc
+                    {
+                        Category theTempCat = Categories.Where(c => c.CategoryPKey == SelectedCategoryPKey).FirstOrDefault();
+                        if (theTempCat != null)
+                        {
+                            Question theExtraQuestion = theTempCat.Questions.Where(q => q.QuestionPKey == "C2Q10").FirstOrDefault();
+                            if (theExtraQuestion != null)
+                            {
+                                if (theQuest.Value == "Yes")
+                                {
+                                    theExtraQuestion.Ineligible = false;
+                                }
+                                else
+                                {
+                                    theExtraQuestion.Ineligible = true;
+                                }
+
+                                ForceQuestionReload = true;
+                                await RefreshData();
+                            }
+                        }
+                    }
+
                     result.QuestionObj = theQuest;
                     result.ReturnVal = "1";
                     IsBusy = false;
@@ -661,7 +688,7 @@ namespace CVIssueApp
         }
 
 
-        public async Task RefreshData()
+        public async Task RefreshData(bool isReset = false)
         {
 
             try
@@ -682,7 +709,15 @@ namespace CVIssueApp
                     theLastSelectedCategoryPKey = SelectedCategory.CategoryPKey;
                 }
 
-                await LoadData();
+                if (isReset)
+                {
+                    await LoadData();
+                }
+                else
+                {
+                    tempCategories.Clear();
+                    tempCategories = Categories.ToList();
+                }
 
                 EnableCategories = true;
 
@@ -718,6 +753,7 @@ namespace CVIssueApp
                             }
                             else
                             {
+                                SelectedCategory = null;
                                 SelectedCategory = theSelectedCat;
                             }
                         }
@@ -744,7 +780,7 @@ namespace CVIssueApp
             {
                 case "Reset":
                     ForceQuestionReload = true;
-                    await RefreshData();
+                    await RefreshData(true);
                     break;
 
                 default:

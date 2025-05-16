@@ -81,7 +81,34 @@ namespace CVIssueApp.Controls
 
         }
 
+        public void OnAnsweredByTextChanged(object sender, Microsoft.Maui.Controls.PropertyChangingEventArgs e)
+        {
+            if (Microsoft.Maui.Devices.DeviceInfo.Platform == DevicePlatform.iOS && e.PropertyName == "Text")
+            {
+                if (sender is Label theLabel)
+                {
+                    if (theLabel.BindingContext is Models.Question theQuestion)
+                    {
+                        if (string.IsNullOrEmpty(theLabel.Text) && string.IsNullOrEmpty(theQuestion.AnsweredByText))
+                        {
+                            return;
+                        }
+                        else
+                        {
+                            if (theLabel.Text == theQuestion.AnsweredByText)
+                            {
+                                return;
+                            }
+                        }
 
+                        if (this.Parent is CustomListView theListview)
+                        {
+                            theListview.ForceNativeTableUpdate(true);
+                        }
+                    }
+                }
+            }
+        }
 
         public void Dispose()
         {

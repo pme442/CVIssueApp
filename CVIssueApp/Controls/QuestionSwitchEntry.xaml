@@ -21,7 +21,7 @@
             <RowDefinition Height="2" />
             <RowDefinition Height="{OnPlatform iOS='*', Android='Auto', WinUI='Auto'}" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="0" />
+            <RowDefinition Height="{Binding AnsweredByHeight}" />
             <RowDefinition Height="0" />
         </Grid.RowDefinitions>
 
@@ -108,6 +108,15 @@
                 </DataTemplate>
             </BindableLayout.ItemTemplate>
         </FlexLayout>
+
+        <Label
+            Grid.Row="3"
+            Grid.Column="0"
+            Grid.ColumnSpan="4"
+            Margin="10,5,10,5"
+            FontAttributes="Italic"
+            Style="{StaticResource questionLabelStyle}"
+            Text="{Binding AnsweredByText}" />
 
         <Grid.Triggers>
             <DataTrigger

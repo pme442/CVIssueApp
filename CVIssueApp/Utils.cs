@@ -314,6 +314,10 @@ namespace CVIssueApp
                 for (var x = 0; x < 5; x++)
                 {
                     await Task.Delay(50);
+                    if (x == 3)
+                    {
+                        await DummyAsyncTask1A();
+                    }
                     if (x == 4)
                     {
                         result = "ok";
@@ -323,6 +327,18 @@ namespace CVIssueApp
             return result;
         }
 
+
+        public static async void DummyAsyncTask3()
+        {
+
+            await Task.Run(async () =>
+            {
+                for (var x = 0; x < 10; x++)
+                {
+                    await Task.Delay(500);                    
+                }
+            });
+        }
 
 
     }

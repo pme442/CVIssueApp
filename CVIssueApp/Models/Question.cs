@@ -115,6 +115,20 @@ namespace CVIssueApp.Models
             }
         }
 
+        private string _answeredByText;
+        public virtual string AnsweredByText
+        {
+            get { return _answeredByText;}
+            set { _answeredByText = value; OnPropertyChanged(nameof(AnsweredByText)); OnPropertyChanged(nameof(AnsweredByHeight)); }
+        }
+
+        private int _answeredByHeight;
+        public int AnsweredByHeight
+        {
+            get { return Visible && !string.IsNullOrEmpty(AnsweredByText) ? 40 : 0; }
+            set { _answeredByHeight = value; OnPropertyChanged(nameof(AnsweredByHeight)); }
+        }
+
         public ObservableCollection<QuestionOption> Options { get; set; }
        
 

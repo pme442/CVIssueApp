@@ -34,14 +34,6 @@ namespace CVIssueApp.Platforms.iOS.Renderers
                 BackgroundColor = cvcell.SelectedItemBackgroundColor.ToPlatform()
             };
 
-            // 2-18-25 anc
-            // If you have a FormMultiSelectEntry in a listview and you select a bunch of items to make the combobox height increase, it would cover up the control(s) under it.
-            // See QuestionAlarmCommentImagesPage: Problems, Codes, Actions.
-            // It would only resize if you close the page and reopen or scroll it off the screen and then back into view.
-            // This PropertyChanged event is a workaround until the bug is fixed.
-            // Known issue: [iOS] ListView with HasUnevenRows="true" doesn't resize dynamically #15053
-            //              ListView with resizing ViewCell has strange behaviour on iOS #8239
-            //              [iOS] ViewCell not resized when HasUnevenRows is enabled and cell content changes #23319
             cvcell.PropertyChanged += (sender, args) =>
             {
                 if (args.PropertyName == "SelectedItems")
@@ -56,8 +48,6 @@ namespace CVIssueApp.Platforms.iOS.Renderers
             };
 
             return uitbvcell;
-
-            //return base.CreatePlatformElement();
         }
 
         private static void MapColor(CustomViewCellRenderer handler, CustomViewCell view)
@@ -76,12 +66,6 @@ namespace CVIssueApp.Platforms.iOS.Renderers
 
         protected override void DisconnectHandler(UITableViewCell platformView)
         {
-            //var z = VirtualView as IVisualTreeElement;
-            //MemoryToolkit.Utilities.TearDown(z);
-
-            //var y = VirtualView.GetVisualTreeDescendants();
-            //var x = platformView.Subviews;
-
             base.DisconnectHandler(platformView);
         }
 
