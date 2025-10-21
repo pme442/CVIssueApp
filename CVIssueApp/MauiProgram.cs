@@ -19,6 +19,7 @@ namespace CVIssueApp
                 .ConfigureMauiHandlers(handlers =>
                 {
                     handlers.AddHandler(typeof(CustomListView), typeof(CVIssueApp.Platforms.iOS.Renderers.CustomListViewRenderer));
+                    handlers.AddHandler<Microsoft.Maui.Controls.CollectionView, Microsoft.Maui.Controls.Handlers.Items2.CollectionViewHandler2>();
                 })
                 .ConfigureMopups();
 

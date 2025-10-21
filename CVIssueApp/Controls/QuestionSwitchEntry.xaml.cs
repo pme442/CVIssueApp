@@ -52,7 +52,7 @@ namespace CVIssueApp.Controls
             // When a true switch is set to false, Toggled event is fired once.
             // When a false switch is set to true Toggled event is fired twice (once for the change and then once again for each item in the list as the form is redrawn).
 
-            if (ToggledIsBusy || BindingContext is null || Parent is null || !(sender is Microsoft.Maui.Controls.Switch thisSwitch))
+            if (ToggledIsBusy || BindingContext is null || !(sender is Microsoft.Maui.Controls.Switch thisSwitch))
             {
                 return;
             }
