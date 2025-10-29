@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CVIssueApp.TestPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:CVIssueApp.Controls"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:local="clr-namespace:CVIssueApp"
+    xmlns:models="clr-namespace:CVIssueApp.Models"
+    Title="TestPage"
+    x:DataType="local:TestPageViewModel">
+
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="LightGreen" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid
+        Margin="0,0,0,0"
+        Padding="0,0,0,0"
+        ColumnSpacing="0"
+        RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*" />
+            <ColumnDefinition Width="50*" />
+        </Grid.ColumnDefinitions>
+
+        <CollectionView
+            Grid.Row="0"
+            Grid.Column="0"
+            BackgroundColor="Transparent"
+            IsGrouped="False"
+            ItemSizingStrategy="MeasureAllItems"
+            ItemsLayout="VerticalList"
+            ItemsSource="{Binding Categories}"
+            SelectedItem="{Binding SelectedCategory, Mode=TwoWay}"
+            SelectionMode="Single">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Category">
+
+                    <Grid Margin="5,10,5,10" RowSpacing="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="{OnPlatform iOS={OnIdiom Phone='60*', Tablet='70*'}, Android='67*', WinUI='70*'}" />
+                            <ColumnDefinition Width="{OnPlatform iOS={OnIdiom Phone='20*', Tablet='20*'}, Android='23*', WinUI='20*'}" />
+                            <ColumnDefinition Width="{OnPlatform iOS={OnIdiom Phone='20*', Tablet='10*'}, Android='28', WinUI='10*'}" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Style="{StaticResource listViewMainLabelStyleBold}"
+                            Text="{Binding Name}" />
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            FontAttributes="None"
+                            HorizontalTextAlignment="End"
+                            Style="{StaticResource listViewMainLabelStyleBold}">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding TotalAnsweredQuestions}" />
+                                    <Span Text="{Binding TotalEligibleQuestions, StringFormat='/{0}'}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:TestPageViewModel}}, Path=ItemTappedCommand, x:DataType=local:TestPageViewModel}"
+                                CommandParameter="{Binding .}"
+                                NumberOfTapsRequired="1" />
+                        </Grid.GestureRecognizers>
+                    </Grid>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button
+            Grid.Row="0"
+            Grid.Column="0"
+            Margin="0,0,5,10"
+            BackgroundColor="DarkGreen"
+            BorderWidth="0"
+            Command="{Binding ClickCommandButton}"
+            CommandParameter="Reset"
+            CornerRadius="10"
+            FontSize="16"
+            HeightRequest="40"
+            HorizontalOptions="Center"
+            Text="Reset"
+            TextColor="White"
+            VerticalOptions="End"
+            WidthRequest="80" />
+
+
+    </Grid>
+
+</ContentPage>

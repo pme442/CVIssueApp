@@ -15,6 +15,7 @@
     <TabBar Route="main">
         <ShellContent Title="Collection Views" ContentTemplate="{DataTemplate local:MainPage}" />
         <ShellContent Title="List Views" ContentTemplate="{DataTemplate local:ListViewPage}" />
+        <ShellContent Title="Test" ContentTemplate="{DataTemplate local:TestPage}" />
         <ShellContent Title="Error Log" ContentTemplate="{DataTemplate local:ErrorLogPage}" />
     </TabBar>
 

@@ -21,7 +21,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="2" />
             <RowDefinition Height="{OnPlatform iOS='*', Android='Auto', WinUI='Auto'}" />
-            <RowDefinition Height="0" />
+            <RowDefinition Height="20" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="{Binding AnsweredByHeight}" />
@@ -61,6 +61,13 @@
                 </Label.FormattedText>
             </Label>
         </FlexLayout>
+
+        <Label
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="4"
+            Text="{Binding Value, Source={x:Reference QuestionTextEntryControl}}"
+            TextColor="OrangeRed" />
 
 
         <ContentView

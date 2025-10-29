@@ -67,6 +67,7 @@ namespace CVIssueApp.Controls
                 var questionOption = (QuestionOption)thisSwitch.BindingContext;
                 var newVal = GetNewQuestionValue(e.Value, questionOption.Value);
                 var oldVal = Value == null ? "" : Value;
+                //var oldVal = question.Value == null ? "" : question.Value;
 
                 if (newVal != oldVal)
                 {
