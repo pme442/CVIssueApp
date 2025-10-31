@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<controls:BaseQuestionEntryTemplate
+    x:Class="CVIssueApp.Controls.QuestionDateEntry"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:CVIssueApp.Controls"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+    xmlns:local="clr-namespace:CVIssueApp"
+    xmlns:models="clr-namespace:CVIssueApp.Models"
+    x:Name="QuestionDateEntryControl"
+    x:DataType="models:Question">
+
+
+    <Grid
+        x:DataType="models:Question"
+        ColumnSpacing="0"
+        HorizontalOptions="FillAndExpand"
+        IsVisible="True"
+        RowSpacing="2"
+        VerticalOptions="StartAndExpand">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2" />
+            <RowDefinition Height="{OnPlatform iOS='*', Android='Auto', WinUI='Auto'}" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="{Binding AnsweredByHeight}" />
+            <RowDefinition Height="0" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.25*" />
+            <ColumnDefinition Width="0.25*" />
+            <ColumnDefinition Width="0.25*" />
+            <ColumnDefinition Width="0.25*" />
+        </Grid.ColumnDefinitions>
+
+        <BoxView
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="4"
+            BackgroundColor="{DynamicResource ColorListViewHeader}" />
+
+
+
+        <FlexLayout
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="4"
+            Margin="10,2,80,2"
+            AlignContent="Start"
+            AlignItems="Start"
+            Direction="Row"
+            JustifyContent="Start"
+            Wrap="Wrap">
+            <Label Style="{StaticResource questionLabelStyle}">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Style="{StaticResource questionLabelSpanStyle}" Text="{Binding Label}" />
+                        <Span Style="{StaticResource questionLabelSpanStyle}" Text="{Binding UnitsText}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </FlexLayout>
+
+        <Label
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="4"
+            Text="{Binding Value}"
+            TextColor="OrangeRed" />
+
+
+
+        <DatePicker
+            x:Name="QuestionCalendar"
+            Grid.Row="3"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            ios:Picker.UpdateMode="WhenFinished"
+            Date="{Binding Value, Converter={StaticResource StringToDateConverter}, Mode=OneWay}"
+            DateSelected="OnDateSelected"
+            HorizontalOptions="Start"
+            IsEnabled="True"
+            Opacity="1"
+            VerticalOptions="Start" />
+
+
+
+        <Label
+            Grid.Row="4"
+            Grid.Column="0"
+            Grid.ColumnSpan="4"
+            IsVisible="False"
+            Style="{StaticResource questionErrorStyle}"
+            Text="{Binding ErrorMessage, Source={x:Reference QuestionDateEntryControl}}">
+            <Label.Triggers>
+                <DataTrigger
+                    Binding="{Binding InError, Source={x:Reference QuestionDateEntryControl}}"
+                    TargetType="Label"
+                    Value="True">
+                    <Setter Property="IsVisible" Value="True" />
+                </DataTrigger>
+                <DataTrigger
+                    Binding="{Binding Alarmed}"
+                    TargetType="Label"
+                    Value="True">
+                    <Setter Property="TextColor" Value="{DynamicResource ColorErrorTextInAlarm}" />
+                </DataTrigger>
+            </Label.Triggers>
+        </Label>
+
+        <Label
+            Grid.Row="5"
+            Grid.Column="0"
+            Grid.ColumnSpan="4"
+            Margin="10,5,10,5"
+            FontAttributes="Italic"
+            Style="{StaticResource questionLabelStyle}"
+            Text="{Binding AnsweredByText}" />
+
+        <Grid.Triggers>
+            <DataTrigger
+                Binding="{Binding Alarmed}"
+                TargetType="Grid"
+                Value="True">
+                <Setter Property="Style" Value="{StaticResource QuestionBackgroundAlarmed}" />
+            </DataTrigger>
+            <DataTrigger
+                Binding="{Binding Alarmed}"
+                TargetType="Grid"
+                Value="False">
+                <Setter Property="Style" Value="{StaticResource QuestionBackground}" />
+            </DataTrigger>
+        </Grid.Triggers>
+
+    </Grid>
+</controls:BaseQuestionEntryTemplate>

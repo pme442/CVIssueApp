@@ -203,9 +203,11 @@ namespace CVIssueApp
                 questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q3", Label = "Enter current year", Location_id = 1, Locationname = "Group 1", Sortorder = 3, IsNumeric = true });
                 questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q4", Label = "Enter current hour", Location_id = 1, Locationname = "Group 1", Sortorder = 4, IsNumeric = true });
                 questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q5", Label = "Enter current minute", Location_id = 1, Locationname = "Group 1", Sortorder = 5, IsNumeric = true });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "date", QuestionPKey = "C1QD5", Label = "Facts Date 1", Location_id = 1, Locationname = "Group 1", Sortorder = 5 });
                 questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q6", Label = "Enter day or night", Location_id = 2, Locationname = "Group 2", Sortorder = 6 });
                 questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q7", Label = "Enter name of city", Location_id = 2, Locationname = "Group 2", Sortorder = 7 });
                 questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "text", QuestionPKey = "C1Q8", Label = "Enter name of state", Location_id = 2, Locationname = "Group 2", Sortorder = 8 });
+                questList1.Add(new Question { CategoryPKey = "C1", Category = cat1, Controltype = "date", QuestionPKey = "C1QD8", Label = "Facts Date 2", Location_id = 2, Locationname = "Group 2", Sortorder = 8 });
 
                 Question SwitchQuestionC1Q9 = new Question { CategoryPKey = "C1", Category = cat1, Controltype = "switch", QuestionPKey = "C1Q9", Label = "Facts Switch 1 Yes or No", Location_id = 2, Locationname = "Group 2", Sortorder = 9 };
                 ObservableCollection<QuestionOption> questOptListC1Q9 = new ObservableCollection<QuestionOption>();
@@ -314,9 +316,11 @@ namespace CVIssueApp
                 questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q3", Label = "Enter favorite car model", Location_id = 3, Locationname = "Group 3", Sortorder = 3 });
                 questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q4", Label = "Enter favorite season", Location_id = 3, Locationname = "Group 3", Sortorder = 4 });
                 questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q5", Label = "Enter favorite holiday", Location_id = 3, Locationname = "Group 3", Sortorder = 5 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "date", QuestionPKey = "C2QD5", Label = "Favorites Date 1", Location_id = 3, Locationname = "Group 3", Sortorder = 5 });
                 questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q6", Label = "Enter favorite pet's name", Location_id = 4, Locationname = "Group 4", Sortorder = 6 });
                 questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q7", Label = "Enter favorite song", Location_id = 4, Locationname = "Group 4", Sortorder = 7 });
                 questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "text", QuestionPKey = "C2Q8", Label = "Enter favorite cookie", Location_id = 4, Locationname = "Group 4", Sortorder = 8 });
+                questList2.Add(new Question { CategoryPKey = "C2", Category = cat2, Controltype = "date", QuestionPKey = "C2QD8", Label = "Favorites Date 2", Location_id = 4, Locationname = "Group 4", Sortorder = 8 });
 
                 Question SwitchQuestionC2Q9 = new Question { CategoryPKey = "C2", Category = cat2, Controltype = "switch", QuestionPKey = "C2Q9", Label = "Favorites Switch 1 Yes or No", Location_id = 4, Locationname = "Group 4", Sortorder = 9 };
                 ObservableCollection<QuestionOption> questOptListC2Q9 = new ObservableCollection<QuestionOption>();

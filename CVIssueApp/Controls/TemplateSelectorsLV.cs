@@ -127,6 +127,7 @@ namespace CVIssueApp.Controls
 
         public DataTemplate QuestionTextTemplate { get; set; }
         public DataTemplate QuestionSwitchTemplate { get; set; }
+        public DataTemplate QuestionDateTemplate { get; set; }
         public DataTemplate BlankTemplate { get; set; }
 
 
@@ -135,6 +136,7 @@ namespace CVIssueApp.Controls
             //Retain instances!
             QuestionTextTemplate = new DataTemplate(typeof(QuestionTextEntryLV));
             QuestionSwitchTemplate = new DataTemplate(typeof(QuestionSwitchEntryLV));
+            QuestionDateTemplate = new DataTemplate(typeof(QuestionDateEntryLV));
             BlankTemplate = new DataTemplate(typeof(QuestionHiddenEntryLV));
         }
 
@@ -174,6 +176,9 @@ namespace CVIssueApp.Controls
                 case "switch":
                     QuestionSwitchTemplate.SetValue(BaseQuestionEntryTemplateLV.ParentBindingContextProperty, container.BindingContext);
                     return QuestionSwitchTemplate;
+                case "date":
+                    QuestionDateTemplate.SetValue(BaseQuestionEntryTemplateLV.ParentBindingContextProperty, container.BindingContext);
+                    return QuestionDateTemplate;
                 default:
                     // text                    
                     QuestionTextTemplate.SetValue(BaseQuestionEntryTemplateLV.ParentBindingContextProperty, container.BindingContext);

@@ -87,6 +87,12 @@
 	</ItemGroup>-->
 
 	<ItemGroup>
+	  <MauiXaml Update="Controls\QuestionDateEntry.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Controls\QuestionDateEntryLV.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Controls\QuestionHiddenEntry.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

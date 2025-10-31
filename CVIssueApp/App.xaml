@@ -270,6 +270,9 @@
             </ControlTemplate>
 
 
+            <local:StringToDateConverter x:Key="StringToDateConverter" />
+
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>
