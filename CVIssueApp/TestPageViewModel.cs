@@ -52,6 +52,28 @@ namespace CVIssueApp
             }
         }
 
+        private TimeSpan? _selectedTime;
+        public TimeSpan? SelectedTime
+        {
+            get { return _selectedTime; }
+            set
+            {
+                _selectedTime = value;
+                OnPropertyChanged(nameof(SelectedTime));
+            }
+        }
+
+        private TimeSpan? _selectedNullTime;
+        public TimeSpan? SelectedNullTime
+        {
+            get { return _selectedNullTime; }
+            set
+            {
+                _selectedNullTime = value;
+                OnPropertyChanged(nameof(SelectedNullTime));
+            }
+        }
+
         public string SelectedCategoryPKey { get; set; }
 
         private ICommand _clickCommandButton;
@@ -72,6 +94,8 @@ namespace CVIssueApp
         public TestPageViewModel()
         {
             Categories = new ObservableCollectionFast<Category>();
+            SelectedTime = new TimeSpan(11,25,00);
+            SelectedNullTime = null;
         }
 
         public async void OnAppearing()

@@ -19,5 +19,8 @@ public partial class TestPage : ContentPage
         }
     }
 
-
+    private void TimePicker_TimeSelected(object sender, TimeChangedEventArgs e)
+    {
+        var x = sender;
+    }
 }
