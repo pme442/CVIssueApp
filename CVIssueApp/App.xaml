@@ -129,7 +129,7 @@
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="Margin" Value="{OnPlatform Android='0,0,0,0', iOS='0,0,0,0', WinUI='0,0,0,0'}" />
                 <Setter Property="VerticalTextAlignment" Value="Start" />
-                <Setter Property="VerticalOptions" Value="StartAndExpand" />
+                <Setter Property="VerticalOptions" Value="Start" />
                 <Setter Property="LineBreakMode" Value="{OnPlatform iOS='WordWrap', WinUI='WordWrap', Android='WordWrap'}" />
             </Style>
             <Style x:Key="questionLabelSpanStyle" TargetType="Span">
@@ -232,7 +232,7 @@
                 <controls:QuestionTextEntryLV x:Name="QuestionTextEntryLV" Value="{Binding Value, FallbackValue=''}" />
             </DataTemplate>
             <DataTemplate x:Key="QuestionSwitchTemplate" x:DataType="models:Question">
-                <controls:QuestionSwitchEntry x:Name="QuestionSwitchEntry" Value="{Binding Value, FallbackValue=''}" />
+                <controls:QuestionSwitchEntry />
             </DataTemplate>
             <DataTemplate x:Key="QuestionSwitchTemplateLV" x:DataType="models:Question">
                 <controls:QuestionSwitchEntryLV x:Name="QuestionSwitchEntryLV" Value="{Binding Value, FallbackValue=''}" />

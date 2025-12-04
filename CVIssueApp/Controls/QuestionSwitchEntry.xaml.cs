@@ -8,21 +8,21 @@ namespace CVIssueApp.Controls
     public partial class QuestionSwitchEntry : BaseQuestionEntryTemplate
     {
 
-        public static readonly BindableProperty ValueProperty = BindableProperty.Create("Value", typeof(string), typeof(QuestionSwitchEntry), string.Empty, BindingMode.OneWay, propertyChanged: OnValuePropertyChanged);
-        public string Value
-        {
-            get { return (string)GetValue(ValueProperty); }
-            set { SetValue(ValueProperty, value); }
-        }
+        //public static readonly BindableProperty ValueProperty = BindableProperty.Create("Value", typeof(string), typeof(QuestionSwitchEntry), string.Empty, BindingMode.OneWay, propertyChanged: OnValuePropertyChanged);
+        //public string Value
+        //{
+        //    get { return (string)GetValue(ValueProperty); }
+        //    set { SetValue(ValueProperty, value); }
+        //}
 
-        private static void OnValuePropertyChanged(BindableObject bindable, object oldValue, object newValue)
-        {
-            if (newValue != oldValue)
-            {
-                var control = (QuestionSwitchEntry)bindable;
-                control.Value = newValue == null ? "" : newValue.ToString();
-            }
-        }
+        //private static void OnValuePropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        //{
+        //    if (newValue != oldValue)
+        //    {
+        //        var control = (QuestionSwitchEntry)bindable;
+        //        control.Value = newValue == null ? "" : newValue.ToString();
+        //    }
+        //}
     
         public bool ToggledIsBusy = false;
 
@@ -66,16 +66,11 @@ namespace CVIssueApp.Controls
                 var question = (Question)BindingContext;
                 var questionOption = (QuestionOption)thisSwitch.BindingContext;
                 var newVal = GetNewQuestionValue(e.Value, questionOption.Value);
-                var oldVal = Value == null ? "" : Value;
-                //var oldVal = question.Value == null ? "" : question.Value;
+                //var oldVal = Value == null ? "" : Value;
+                var oldVal = question.Value == null ? "" : question.Value;
 
                 if (newVal != oldVal)
-                {
-
-                    // 6-26-20 anc
-                    // Setting Value here instead of after getting result.ReturnVal due to bug #9099 (mentioned above)                
-                    Value = newVal.ToString();
-
+                {                    
                     // If a switch was turned on (and a different switch is already turned on), turn off any other in the group.
                     if (e.Value && (oldVal != "" && oldVal != null))
                     {
@@ -111,14 +106,9 @@ namespace CVIssueApp.Controls
                             if (!(bool)isBusyProperty.GetValue(ParentBindingContext))
                             {
                                 await SaveValue(question, newVal);
-                                //Dispatcher.DispatchAsync(async () => await SaveValue(question, newVal));
-                                //Task.Run(async() => await SaveValue(question, newVal));
                             }
                             else
                             {
-                                //Utils.WriteErrLog(LogLevel.Error, null, "In OnSwitchToggled(), TaskPMPage is busy, q = " + question.Label, false);
-
-                                Value = oldVal;
                                 ToggledIsBusy = true;
                                 //thisSwitch.Toggled -= OnSwitchToggled;
                                 thisSwitch.IsToggled = !e.Value;
@@ -141,19 +131,12 @@ namespace CVIssueApp.Controls
             MethodInfo theSaveMethod = ParentBindingContext.GetType().GetMethod("OnQuestionChanged");
             if (theSaveMethod != null)
             {
-                // 2-18-25 anc
-                // Need to save ParentBindingContext to a local variable in case a question has descendants AND is in alarm.
-                // After the response is saved, AnalyzingDescendants will run which will call TearDownBehavior on the question list which removes the ParentBindingContext.
-                // So, by the time we get back here to call HandleAlarmPrompt(), ParentBindingContext will be null.
                 object theParentBindingContext = ParentBindingContext;
                 try
                 {
                     var task = (Task<QuestionUpdateResult>)theSaveMethod.Invoke(ParentBindingContext, new object[] { theQuestionObj, newVal });
                     QuestionUpdateResult result = await task;
 
-                    // 3-3-25 anc
-                    // Added some extra checks on the state of the awaited task.  
-                    // I have never hit any of them, so these might not be useful but I will leave for now.
                     if (task.IsFaulted)
                     {
                         Debug.WriteLine("QuestionSwitchEntry task.IsFaulted");
@@ -164,22 +147,7 @@ namespace CVIssueApp.Controls
                     }
                     else
                     {
-                        if (result.ReturnVal == "1")
-                        {
-                            if (!string.IsNullOrEmpty(result.AlarmMsg))
-                            {
-                                MethodInfo theAlarmPromptMethod = theParentBindingContext.GetType().GetMethod("HandleAlarmPrompt");
-                                theAlarmPromptMethod.Invoke(theParentBindingContext, new object[] { result });
-
-                                // 2-17-25 anc
-                                // Invoking HandleAlarmPrompt inside of a Task.Run() was causing the app to crash with the following error: **System.ArgumentException:** 'An item with the same key has already been added. Key: Microsoft.Maui.Controls.BindableProperty'
-                                // It was happening if you kept answering Btn2State questions with a response in alarm. It was random in terms of how long it took to happen.  Sometimes after 3 questions, somtimes after 30 questions.
-                                // Removing this and just invoking the method, like the other Question controls, stopped that from happening.
-                                //await Task.Run(() => {
-                                //    theAlarmPromptMethod.Invoke(ParentBindingContext, new object[] { result });
-                                //});                            
-                            }
-                        }
+                       // do nothing
                     }
                 }
                 catch (Exception ex)

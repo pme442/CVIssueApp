@@ -138,19 +138,13 @@ namespace CVIssueApp.Controls
             MethodInfo theSaveMethod = ParentBindingContext.GetType().GetMethod("OnQuestionChanged");
             if (theSaveMethod != null)
             {
-                // 2-18-25 anc
-                // Need to save ParentBindingContext to a local variable in case a question has descendants AND is in alarm.
-                // After the response is saved, AnalyzingDescendants will run which will call TearDownBehavior on the question list which removes the ParentBindingContext.
-                // So, by the time we get back here to call HandleAlarmPrompt(), ParentBindingContext will be null.
+
                 object theParentBindingContext = ParentBindingContext;
                 try
                 {
                     var task = (Task<QuestionUpdateResult>)theSaveMethod.Invoke(ParentBindingContext, new object[] { theQuestionObj, newVal });
                     QuestionUpdateResult result = await task;
 
-                    // 3-3-25 anc
-                    // Added some extra checks on the state of the awaited task.  
-                    // I have never hit any of them, so these might not be useful but I will leave for now.
                     if (task.IsFaulted)
                     {
                         Debug.WriteLine("QuestionSwitchEntry task.IsFaulted");
@@ -161,22 +155,7 @@ namespace CVIssueApp.Controls
                     }
                     else
                     {
-                        if (result.ReturnVal == "1")
-                        {
-                            if (!string.IsNullOrEmpty(result.AlarmMsg))
-                            {
-                                MethodInfo theAlarmPromptMethod = theParentBindingContext.GetType().GetMethod("HandleAlarmPrompt");
-                                theAlarmPromptMethod.Invoke(theParentBindingContext, new object[] { result });
-
-                                // 2-17-25 anc
-                                // Invoking HandleAlarmPrompt inside of a Task.Run() was causing the app to crash with the following error: **System.ArgumentException:** 'An item with the same key has already been added. Key: Microsoft.Maui.Controls.BindableProperty'
-                                // It was happening if you kept answering Btn2State questions with a response in alarm. It was random in terms of how long it took to happen.  Sometimes after 3 questions, somtimes after 30 questions.
-                                // Removing this and just invoking the method, like the other Question controls, stopped that from happening.
-                                //await Task.Run(() => {
-                                //    theAlarmPromptMethod.Invoke(ParentBindingContext, new object[] { result });
-                                //});                            
-                            }
-                        }
+                        
                     }
                 }
                 catch (Exception ex)

@@ -39,7 +39,7 @@
             Grid.Row="0"
             Grid.Column="0"
             Grid.ColumnSpan="4"
-            BackgroundColor="{DynamicResource ColorListViewHeader}" />
+            Color="{DynamicResource ColorListViewHeader}" />
 
 
 

@@ -133,10 +133,7 @@ namespace CVIssueApp.Controls
             MethodInfo theSaveMethod = ParentBindingContext.GetType().GetMethod("OnQuestionChanged");
             if (theSaveMethod != null)
             {
-                // 2-18-25 anc
-                // Need to save ParentBindingContext to a local variable in case a question has descendants AND is in alarm.
-                // After the response is saved, AnalyzingDescendants will run which will call TearDownBehavior on the question list which removes the ParentBindingContext.
-                // So, by the time we get back here to call HandleAlarmPrompt(), ParentBindingContext will be null.
+
                 object theParentBindingContext = ParentBindingContext;
                 try
                 {
